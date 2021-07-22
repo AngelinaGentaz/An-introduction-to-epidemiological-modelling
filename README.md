@@ -1,3 +1,8 @@
+# An introduction to epidemiological modelling
+
+Project carried out as part of a first-year degree at Sorbonne University with Bonnet Sophie, Delcourt Oriane, Eberwein Johann, students in the PCGI portal at Sorbonne University
+2020-2021 academic year
+
 # 1 Introduction
 ## 1.1 Context
 
@@ -10,7 +15,7 @@ Annual seasonal epidemics are a public health issue because they affect millions
 
 ## 1.2 Objectives
 
-The spread of an infectious agent in a population is a dynamic phenomenon. Many epidemiological models have been developed and have played a role in political and health decisions. But on what parameters are these models based? Are they sufficient to qualify as an "epidemiological" policy? In order to answer these questions, we propose in this report to describe an epidemiological model, to study it for a seasonal influenza epidemic, to define its characteristics, its advantages and disadvantages. A section will present the methodology that we applied in the choice of the model and the data as well as an explanation of the least squares method.
+The spread of an infectious agent in a population is a dynamic phenomenon. Many epidemiological models have been developed and have played a role in political and health decisions. But on what parameters are these models based? Are they sufficient to qualify as an "epidemiological" policy ? In order to answer these questions, we propose in this report to describe an epidemiological model, to study it for a seasonal influenza epidemic, to define its characteristics, its advantages and disadvantages. A section will present the methodology that we applied in the choice of the model and the data as well as an explanation of the least squares method.
 
 Our objectives will be to model its dynamics and characteristics, such as the peak and decay of the phenomenon, and then to estimate the different parameters of the infection using a mathematical resolution. To do this, we will detail the method used by presenting our chosen model and our dataset. Secondly, we will present and explain the results obtained from our modelling. Finally, we will discuss the effectiveness of the techniques that allowed us to gather our results and build our work in order to conclude this study.
 
@@ -52,10 +57,10 @@ where, as we have seen above, β represents the infection rate and γ the cure r
 *Note on the basic reproduction rate R0*:
 Sometimes called the base number, the R0 can be described as the reproduction rate of the virus, or the average number of people infected following the arrival of a single infectious individual in a population where all individuals are susceptible to the infectious agent. Before being used in epidemiology, this concept was originally used in demography. The R0 is a dynamic variable that represents a picture at a given time of virus transmission in a given context. It depends on three parameters and is calculated in this way (Van den Driessche, 2017):
 
-R0 = pcd
+R0 = p.c.d
 
 where p is the probability of transmission of the virus, c is the number of daily contacts and d is the duration of the illness.
-For influenza, it is about 1.5. In other words, one person infected with influenza at the beginning of the epidemic will infect an average of 1 to 2 others. To prevent the epidemic from growing, the $R_{0}$ must remain below 1. This breaks the chains of transmission and thus reduces the number of cases at each "generation" of the epidemic. When the R0 is greater than 1, this means that each infection causes more than one new infection and therefore the situation can evolve rapidly from a cluster to an epidemic or even a pandemic (examples with H1N1 and Covid-19). However, during our modelling, we will not need this data. Indeed, the SIR model, which is rather simplified, does not take into account the R0 parameters.
+For influenza, it is about 1.5. In other words, one person infected with influenza at the beginning of the epidemic will infect an average of 1 to 2 others. To prevent the epidemic from growing, the R0 must remain below 1. This breaks the chains of transmission and thus reduces the number of cases at each "generation" of the epidemic. When the R0 is greater than 1, this means that each infection causes more than one new infection and therefore the situation can evolve rapidly from a cluster to an epidemic or even a pandemic (examples with H1N1 and Covid-19). However, during our modelling, we will not need this data. Indeed, the SIR model, which is rather simplified, does not take into account the R0 parameters.
 
 # 3 Methodology
 ## 3.1 Model selection
@@ -78,12 +83,62 @@ After much research, the data provided by the Sentinel network seemed to be the 
 
 The method of least squares makes it possible to compare experimental data, which are generally affected by measurement errors, with a mathematical model that is supposed to describe these data. Mathematically, it is translated as follows :
 
-min $\sum[y_{obs,i}-y_{théo}(x_{i})]^2$
+![Figure 4](https://user-images.githubusercontent.com/85577140/126714687-d3302316-93f6-4935-9b56-a88c59042354.jpg)
 
 The use of this method allows the model to be optimised: this is known as least squares model fitting. We will discuss the use of this method in the context of our modelling in the Results section.
 
 # 4 Results
 
+In a first step we modelled our SIR model via Excel. I plan to publish the Python program on github but you can send me a private message if you are interested in having it before. 
+The three initial compartments (Sucpetible, Infected and Recovered) could thus be set up. Once the formulas were entered into the Excel cells, it was interesting to compare the modelling with our real data. To do this, we proceeded as follows on 3 of the peaks already identified in our real data from the Sentinel network :
+* The initial infection rate at the beginning of the epidemic peak is taken from the data.
+* This is entered into the first cell of the Infected column. In this way, the model and the actual data start from the same initial infection rate at time t=0. This allows us to see, for example, if the model will reach the epidemic peak faster than the real data or vice versa.
+* We plot the two corresponding curves (one corresponding to our epidemic peak from the real data and the other from our modelling) on the same graph for easy comparison.
+
+![Figure 4](https://github.com/AngelinaGentaz/SIR-model-test-on-git/issues/1)
+
+Figure 4 : SIR model (without comparison with real data)
+
+In order to further fit our model with the real data, as discussed in the Methodology section, we then apply the least squares method:
+* Having previously identified how many Excel cells were affected by our epidemic peak from the real data, we calculate the difference between the rate of infection at time t in our modelling and the rate of infection at time t in our epidemic peak from the real data.
+* Sum the squares of these differences.
+* Apply the Solver tool of Excel.
+
+SECTION A COMPLETER !! (voir fichier excel)
+
+# 5 Discussion
+## 5.1 Advantages and disadvantages of the SIR model
+
+As we have seen, the SIR model does not take into account all the parameters, but already gives a first idea of how to model an epidemic peak. It is a fairly simple model, but it requires certain data to be found, such as the population, the infection rate and the cure rate. However, the choice of the value of these parameters is often more or less arbitrary, as is the choice of a fixed total population, which is in fact not the case. Furthermore, it should be noted that as this is a seasonal disease, the variants are not the same from one year to the next, thus modifying the different parameters.
+Another important point to note about the SIR model is that it does not take into account certain aspects such as immunity acquired through exposure to the virus or through vaccination as well as non-infectious infected persons as the SEIR model can do. However, to be able to use these data effectively, more resources are needed on this subject and we have found that it is difficult to find stable information.
+
+## 5.2 Advantages and disadvantages of least squares method
+
+The principle of the least squares method is to compare whether our modelling is close enough to reality. The value obtained with the Solver tool in Excel is however only indicative and specific to this study (depending very particularly on the scale used). The advantage of this method is that we can find the values of the parameters that we can vary (in this case β and γ) in order to get closer to the real values.
+
+SECTION A COMPLETER !! (voir résultats)
+
+# 6 Conclusion
+
+This study allowed us to familiarise ourselves with the tools used in the case of epidemiological studies by means of simple tools. The search for reliable data led to the choice of the SIR model, as some data were inaccessible and a model that was too complex could not have been considered. Moreover, it would have required extensive knowledge of this field and a consequent number of parameters to manage. However, this model was able to model the selected epidemic peaks relatively closely. This model based on differential equations gives the first keys on how to formulate a problem from a mathematical point of view and how to interpret it correctly.
+In the context of a health crisis related to COVID-19, it is this type of modelling that serves as a decision support tool for governments and public health authorities. Analyses and interpretations of these models must be done with parsimony since a model does not fully reflect reality and only represents probabilities of events at a given time and there will often be discrepancies between model results and actual observations that are inherent in the structure of the model itself and uncertainty about certain parameters. 
+
+
+# References
+
+Brauer F. (2008) Compartmental Models in Epidemiology. In: Brauer F., van den Driessche P., Wu J. (eds) Mathematical Epidemiology. Lecture Notes in Mathematics, vol 1945. Springer, Berlin, Heidelberg
+
+Kermack, W. O. and McKendrick, A. G. (1927). Contributions to the mathematical theory of epidemics, part i. Proceedings of the Royal Society of Edinburgh. Section A. Mathematics. 115, 700-721.
+
+Siettos, C. I., & Russo, L. (2013). Mathematical modeling of infectious disease dynamics. Virulence, 4(4), 295-306
+
+Sentinelles, R. I. (2021). Données syndromes grippaux Réseau Sentinelles. Réseau Sentinelles. http://www.sentiweb.fr/france/fr/?page=table
+
+Modélisation d'une épidémie - Images des mathématiques. (2020, novembre). CNRS. https://images.math.cnrs.fr/Modelisation-d-une-epidemie-partie-2.html\
+
+
+*Supporting information* : this paper is also written in LaTeX and in French, to get it, please reach me out. In the rest of this repo you will find the raw dataset. An illustrated appendix concerning the data cleaning set has also been written in French (but a bit heavy to import on GitHub). If you wish to read it, please do not hesitate to reach me out again.
+I would like to thank Sophie, Oriane and Johann for their involvement in this paper as well as our teacher members of the jury, Mr Koelblen and Mr Rauzy.
 
 
 
