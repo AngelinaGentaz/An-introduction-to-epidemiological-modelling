@@ -37,22 +37,15 @@ The differential equations for this model are :
 
 ![Figure 3](https://user-images.githubusercontent.com/85577140/126708647-89349656-7199-4023-837b-455da485f056.jpg)
 
-where $\beta$ represents the rate of infection and $\gamma$ the rate of cure. $\beta$ corresponds in fact to the probability of being infected after having been in contact with an infected individual. The latter varies somewhat according to the virus considered but depends mainly on the environment, hence a value which can easily vary between 0.2 and 0.8. $\gamma$ corresponds in fact to the probability of no longer being able to transmit the virus, either after being immunised or after death.
+where \beta represents the rate of infection and $\gamma$ the rate of cure. $\beta$ corresponds in fact to the probability of being infected after having been in contact with an infected individual. The latter varies somewhat according to the virus considered but depends mainly on the environment, hence a value which can easily vary between 0.2 and 0.8. $\gamma$ corresponds in fact to the probability of no longer being able to transmit the virus, either after being immunised or after death.
 
 The SIR model can be modified to incorporate another variable, which is the "exposed compartment" (SEIR model) as in Figure 3 (Brauer, 2008).
 
-![Figure 4](https://user-images.githubusercontent.com/85577140/126708869-9b44da95-568d-4102-81c9-a75890b0e425.jpg)
+![Figure 4](https://user-images.githubusercontent.com/85577140/126707728-bb428c12-2a81-4f1c-8a11-5413c9909c19.jpg)
 
 The differential equations for this model are :
 
-\begin{center}
-   $\left\{\begin{array}{l}
-\frac{d S(t)}{d t}=-\beta S(t) I(t)+\nu N(t)-\mu S(t) \\
-\frac{d E(t)}{d t}=\beta S(t) I(t)-\alpha E(t)-\mu(t) \\
-\frac{d I(t)}{d t}=\alpha E(t)-\gamma I(t)-\mu I(t) \\
-\frac{d R(t)}{d t}=\gamma I(t)-\mu R(t)
-\end{array}\right.$
-\end{center}
+![Figure 4](https://user-images.githubusercontent.com/85577140/126708869-9b44da95-568d-4102-81c9-a75890b0e425.jpg)
 
 
 
