@@ -17,8 +17,43 @@ Our objectives will be to model its dynamics and characteristics, such as the pe
 # 2 Epidemiological models description
 ## 2.1 Model classification
 
-Currently, mathematical models can be divided into three main categories: (1) statistical, (2) mechanistic and (3) empirical/automatic learning (Figure 1). In this section, we will provide a brief description of the main methods used by modellers (Siettos and Russo, 2013).
+Currently, mathematical models can be divided into three main categories: (1) statistical, (2) mechanistic and (3) empirical/automatic learning (Figure 1).
 
 ![Figure 1 :Overview of mathematical models for infectious diseases (from Siettos and Russo, 2013)](https://user-images.githubusercontent.com/85577140/126706328-60db96be-c407-4d03-9a0e-f786bc482d1f.jpg)
-Format: ![Alt Text](url)
+Figure 1 :Overview of mathematical models for infectious diseases (from Siettos and Russo, 2013)
+
+
+*Note on deterministic continuum models* : expressed as differential and/or partial differential equations. They describe the overall dynamics of epidemics in a given population. The best representative of this model is the one developed by Kermack and McKendrick (1927): the compartmental SIR (susceptible, infected, recovered) model, which we will develop further.
+
+*Note on stochastic models* : models at the individual level with the assumption of mean-field approximations of an infinite population and a perfect mixture (individual behaviour and multiple heterogeneous characteristics). The main representative is discrete Markov chains where time and states are defined over a discrete set of values.
+
+## 2.2 SIR ans SEIR model
+
+As mentioned above, deterministic continuum models are mainly represented by the Kermack-McKendrick (SIR) model of 1927. The derived equations and assumptions are described below.
+
+![Figure 2](https://user-images.githubusercontent.com/85577140/126707666-7a86e96a-4d7e-49ae-be27-da4d1a4a2758.jpg)
+
+The differential equations for this model are :
+
+![Figure 3](https://user-images.githubusercontent.com/85577140/126708647-89349656-7199-4023-837b-455da485f056.jpg)
+
+where $\beta$ represents the rate of infection and $\gamma$ the rate of cure. $\beta$ corresponds in fact to the probability of being infected after having been in contact with an infected individual. The latter varies somewhat according to the virus considered but depends mainly on the environment, hence a value which can easily vary between 0.2 and 0.8. $\gamma$ corresponds in fact to the probability of no longer being able to transmit the virus, either after being immunised or after death.
+
+The SIR model can be modified to incorporate another variable, which is the "exposed compartment" (SEIR model) as in Figure 3 (Brauer, 2008).
+
+![Figure 4](https://user-images.githubusercontent.com/85577140/126708869-9b44da95-568d-4102-81c9-a75890b0e425.jpg)
+
+The differential equations for this model are :
+
+\begin{center}
+   $\left\{\begin{array}{l}
+\frac{d S(t)}{d t}=-\beta S(t) I(t)+\nu N(t)-\mu S(t) \\
+\frac{d E(t)}{d t}=\beta S(t) I(t)-\alpha E(t)-\mu(t) \\
+\frac{d I(t)}{d t}=\alpha E(t)-\gamma I(t)-\mu I(t) \\
+\frac{d R(t)}{d t}=\gamma I(t)-\mu R(t)
+\end{array}\right.$
+\end{center}
+
+
+
 
