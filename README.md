@@ -105,13 +105,18 @@ In order to further fit our model with the real data, as discussed in the Method
 * Sum the squares of these differences.
 * Apply the Solver tool of Excel.
 
+Let us now introduce the graphs found. For the first epidemiological peak studied, we have :
+
 ![Pic1](https://user-images.githubusercontent.com/85577140/126783914-9c4a4c18-5ffa-4424-aaa4-7c767ddb5546.jpg)
+![Pic1MMC](https://user-images.githubusercontent.com/85577140/126794907-1f0dc9af-9dff-4df3-b809-e667cde0ee21.jpg)
+
+we can immediately notice the efficiency of the least squares method: our model is much more adjusted to reality when we apply this method. 
+The Solver tool in Excel was able to modify the value of the β and γ parameters by taking into account the different formulas entered in the cells. 
+For the minimisation of the square of the deviations, we find the figure of about 0.000001 (see Excel file in the rest of the repo).
 
 ![Pic2](https://user-images.githubusercontent.com/85577140/126783927-06a7ecf6-649b-4aec-b00b-dd473fcf0985.jpg)
 
 ![Pic3](https://user-images.githubusercontent.com/85577140/126783935-2ad71d0f-aaf2-4dd7-9609-acc0c0ff5b6a.jpg)
-
-![Pic1MMC](https://user-images.githubusercontent.com/85577140/126794907-1f0dc9af-9dff-4df3-b809-e667cde0ee21.jpg)
 
 ![Pic2MMC](https://user-images.githubusercontent.com/85577140/126784278-3886d3f9-6e01-41ea-ae10-5e3d5a2678d5.jpg)
 
