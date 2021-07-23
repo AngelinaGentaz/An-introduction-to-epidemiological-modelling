@@ -111,7 +111,7 @@ In order to further fit our model with the real data, as discussed in the Method
 
 ![Pic3](https://user-images.githubusercontent.com/85577140/126783935-2ad71d0f-aaf2-4dd7-9609-acc0c0ff5b6a.jpg)
 
-![Pic1MMC](https://user-images.githubusercontent.com/85577140/126784241-29a018a4-49fd-4f7d-8241-f078eca4f41c.jpg)
+![Pic1MMC](https://user-images.githubusercontent.com/85577140/126794907-1f0dc9af-9dff-4df3-b809-e667cde0ee21.jpg)
 
 ![Pic2MMC](https://user-images.githubusercontent.com/85577140/126784278-3886d3f9-6e01-41ea-ae10-5e3d5a2678d5.jpg)
 
