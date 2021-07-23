@@ -1,6 +1,7 @@
 # An introduction to epidemiological modelling
 
-Project carried out as part of a first-year degree at Sorbonne University with Bonnet Sophie, Delcourt Oriane, Eberwein Johann, students in the PCGI portal at Sorbonne University (2020-2021 academic year)
+> All models are wrong, but some are usefull
+Georges Box
 
 # 1 Introduction
 ## 1.1 Context
@@ -95,7 +96,7 @@ The use of this method allows the model to be optimised: this is known as least 
 # 4 Results
 
 In a first step we modelled our SIR model via Excel. I plan to publish the Python program on github but you can send me a private message if you are interested in having it before. 
-The three initial compartments (Sucpetible, Infected and Recovered) could thus be set up. Once the formulas were entered into the Excel cells, it was interesting to compare the modelling with our real data. To do this, we proceeded as follows on 3 of the peaks already identified in our real data from the Sentinel network :
+The three initial compartments (Susceptible, Infected and Recovered) could thus be set up. Once the formulas were entered into the Excel cells, it was interesting to compare the modelling with our real data. To do this, we proceeded as follows on 3 of the peaks already identified in our real data from the Sentinel network :
 * The initial infection rate at the beginning of the epidemic peak is taken from the data.
 * This is entered into the first cell of the Infected column. In this way, the model and the actual data start from the same initial infection rate at time t=0. This allows us to see, for example, if the model will reach the epidemic peak faster than the real data or vice versa.
 * We plot the two corresponding curves (one corresponding to our epidemic peak from the real data and the other from our modelling) on the same graph for easy comparison.
@@ -140,12 +141,9 @@ Another important point to note about the SIR model is that it does not take int
 
 ## 5.2 Advantages and disadvantages of least squares method
 
-The principle of the least squares method is to compare whether our modelling is close enough to reality. The value obtained with the Solver tool in Excel is however only indicative and specific to this study (depending very particularly on the scale used). The advantage of this method is that we can find the values of the parameters that we can vary (in this case β and γ) in order to get closer to the real values.
+The principle of the least squares method is to compare whether our modelling is close enough to reality. The value obtained with the Solver tool in Excel is however only indicative and specific to this study (depending very particularly on the scale used). The advantage of this method is that we can find the values of the parameters that we can vary (in this case β and γ) in order to get closer to the real values. This method helped us to understand a first regression technique, sometimes used in econometrics.
 
-SECTION A COMPLETER !! (voir résultats)
-Nous a aidé à comprendre première technique de regression avec la méthode des moindres carrés, une méthode de régression parmi d'autres + mesurer de l'importance de la sensibilité du modèle etc
-n'a pas vocation prédictive
-différence de valeur entre les beta et gamma s'expliquent parle caractère saisonnier du virus + fortes proba de muta donc caractéristiques différentes etc.
+However, although this method provides guidance on the most relevant parameter values for modelling the real situation, it is difficult to apply these same values in another influenza epidemic period. Indeed, as can be seen on the graphs above, in the first case the best values (to minimise the sum of squares of the deviations and thus stick to reality) for β and γ are respectively 0.826 and 0.762, whereas in the second case they are 0.602 and 0.537. This difference in values can be explained, as mentioned above, by the seasonal nature of influenza and its high mutation probabilities, and therefore different initial β and γ characteristics for each year. Thus this model has difficulty in claiming a predictive vocation when it is applied to a seasonal virus.
 
 # 6 Conclusion
 
@@ -167,7 +165,9 @@ Modélisation d'une épidémie - Images des mathématiques. (2020, novembre). CN
 
 
 ### Supporting information
-This paper is also written in LaTeX and in French, to get it, please reach me out. In the rest of this repo you will find the raw dataset. An illustrated appendix concerning the data cleaning set has also been written in French (but a bit heavy to import on GitHub). If you wish to read it, please do not hesitate to reach me out again.
+This is a project carried out as part of a first-year degree at Sorbonne University with Bonnet Sophie, Delcourt Oriane, Eberwein Johann, students in the PCGI portal at Sorbonne University (2020-2021 academic year). I would like to thank them for their commitment.
+
+This paper is also written in LaTeX and in French, to get it, please reach me out. In the rest of this repo you will find the raw dataset, the Excel file with which we set up our SIR model and a few research track that I personally found interesting if you are starting to get interested in epidemiological modelling. An illustrated appendix concerning the data cleaning set has also been written in French (but a bit heavy to import on GitHub). If you wish to read it, please do not hesitate to reach me out again.
 
 
 
