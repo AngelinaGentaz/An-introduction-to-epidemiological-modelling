@@ -1,7 +1,6 @@
 # An introduction to epidemiological modelling
 
-Project carried out as part of a first-year degree at Sorbonne University with Bonnet Sophie, Delcourt Oriane, Eberwein Johann, students in the PCGI portal at Sorbonne University
-2020-2021 academic year
+Project carried out as part of a first-year degree at Sorbonne University with Bonnet Sophie, Delcourt Oriane, Eberwein Johann, students in the PCGI portal at Sorbonne University (2020-2021 academic year)
 
 # 1 Introduction
 ## 1.1 Context
@@ -33,7 +32,7 @@ Figure 1 :Overview of mathematical models for infectious diseases (from Siettos 
 
 ## 2.2 SIR and SEIR model
 
-As mentioned above, deterministic continuum models are mainly represented by the Kermack-McKendrick (SIR) model of 1927. The derived equations and assumptions are described below.
+As mentioned above, deterministic continuum models are mainly represented by the Kermack-McKendrick (SIR) model of 1927. The flow chart for the SIR model looks like this:
 
 ![Figure 2](https://user-images.githubusercontent.com/85577140/126707666-7a86e96a-4d7e-49ae-be27-da4d1a4a2758.jpg)
 
@@ -41,9 +40,16 @@ The differential equations for this model are :
 
 ![Figure 3](https://user-images.githubusercontent.com/85577140/126708647-89349656-7199-4023-837b-455da485f056.jpg)
 
-where β represents the rate of infection and γ the rate of cure. β corresponds in fact to the probability of being infected after having been in contact with an infected individual. The latter varies somewhat according to the virus considered but depends mainly on the environment, hence a value which can easily vary between 0.2 and 0.8. γ corresponds in fact to the probability of no longer being able to transmit the virus, either after being immunised or after death.
+Susceptible individuals become infected at rate β, and infected individuals recover at rate γ. The last equation can be omitted if N is kept fixed, and R can be deduced from R(t) = N − S(t) − I(t).
+The infection rate β is defined as the product of the average number of contacts each individual makes per unit time, c, and the probability of infection via contact, p, divided by the total population size, N :
 
-The SIR model can be modified to incorporate another variable, which is the "exposed compartment" (SEIR model) as in Figure 3 (Brauer, 2008).
+![Figure 4](https://user-images.githubusercontent.com/85577140/126776508-b988b8df-998f-4ce4-b3b0-c885bf193ebb.jpg)
+
+The recovery rate γ is simply the inverse of the characteristic timescale over which an individual remains infected T :
+
+![Figure 4](https://user-images.githubusercontent.com/85577140/126776479-60a2a760-fc0e-47a0-9fcc-1000a7978514.jpg)
+
+The SIR model can be modified to incorporate another variable, which is the "exposed compartment" (SEIR model) as in Figure 3 (Brauer, 2008) and the flow chart for the SEIR model looks like this:
 
 ![Figure 4](https://user-images.githubusercontent.com/85577140/126707728-bb428c12-2a81-4f1c-8a11-5413c9909c19.jpg)
 
@@ -51,15 +57,15 @@ The differential equations for this model are :
 
 ![Figure 4](https://user-images.githubusercontent.com/85577140/126708869-9b44da95-568d-4102-81c9-a75890b0e425.jpg)
 
-where, as we have seen above, β represents the infection rate and γ the cure rate. Added to these two parameters, $\alpha$ which corresponds to the incubation rate, ν which corresponds to the birth rate, μ which corresponds to the mortality rate. Finally N(t) corresponds to the total population which evolves during the time t. We realise that the SEIR model is a little more elaborate: it takes into account three more hypotheses than the SIR model, the demography of the population in particular.
+α corresponds to the incubation rate, ν corresponds to the birth rate, μ corresponds to the mortality rate. Finally N(t) corresponds to the total population which evolves during the time t. We realise that the SEIR model is a little more elaborate: it takes into account three more hypotheses than the SIR model, the demography of the population in particular.
 
 *Note on the basic reproduction rate R0*:
 Sometimes called the base number, the R0 can be described as the reproduction rate of the virus, or the average number of people infected following the arrival of a single infectious individual in a population where all individuals are susceptible to the infectious agent. Before being used in epidemiology, this concept was originally used in demography. The R0 is a dynamic variable that represents a picture at a given time of virus transmission in a given context. It depends on three parameters and is calculated in this way (Van den Driessche, 2017):
 
 R0 = p.c.d
 
-where p is the probability of transmission of the virus, c is the number of daily contacts and d is the duration of the illness.
-For influenza, it is about 1.5. In other words, one person infected with influenza at the beginning of the epidemic will infect an average of 1 to 2 others. To prevent the epidemic from growing, the R0 must remain below 1. This breaks the chains of transmission and thus reduces the number of cases at each "generation" of the epidemic. When the R0 is greater than 1, this means that each infection causes more than one new infection and therefore the situation can evolve rapidly from a cluster to an epidemic or even a pandemic (examples with H1N1 and Covid-19). However, during our modelling, we will not need this data. Indeed, the SIR model, which is rather simplified, does not take into account the R0 parameters.
+where, as we have seen above, p is the probability of infection via contact, c is the average number of contacts each individual makes per unit time and d is the duration of the illness.
+For influenza, it is about 1.7. To prevent the epidemic from growing, the R0 must remain below 1. This breaks the chains of transmission and thus reduces the number of cases at each "generation" of the epidemic. When the R0 is greater than 1, this means that each infection causes more than one new infection and therefore the situation can evolve rapidly from a cluster to an epidemic or even a pandemic (examples with H1N1 and Covid-19). However, during our modelling, we will not need this data. 
 
 # 3 Methodology
 ## 3.1 Model selection
@@ -94,16 +100,25 @@ The three initial compartments (Sucpetible, Infected and Recovered) could thus b
 * This is entered into the first cell of the Infected column. In this way, the model and the actual data start from the same initial infection rate at time t=0. This allows us to see, for example, if the model will reach the epidemic peak faster than the real data or vice versa.
 * We plot the two corresponding curves (one corresponding to our epidemic peak from the real data and the other from our modelling) on the same graph for easy comparison.
 
-![Figure 4](https://github.com/AngelinaGentaz/SIR-model-test-on-git/issues/1)
-
-Figure 4 : SIR model (without comparison with real data)
-
 In order to further fit our model with the real data, as discussed in the Methodology section, we then apply the least squares method:
 * Having previously identified how many Excel cells were affected by our epidemic peak from the real data, we calculate the difference between the rate of infection at time t in our modelling and the rate of infection at time t in our epidemic peak from the real data.
 * Sum the squares of these differences.
 * Apply the Solver tool of Excel.
 
-SECTION A COMPLETER !! (voir fichier excel)
+![Pic1](https://user-images.githubusercontent.com/85577140/126783914-9c4a4c18-5ffa-4424-aaa4-7c767ddb5546.jpg)
+
+![Pic2](https://user-images.githubusercontent.com/85577140/126783927-06a7ecf6-649b-4aec-b00b-dd473fcf0985.jpg)
+
+![Pic3](https://user-images.githubusercontent.com/85577140/126783935-2ad71d0f-aaf2-4dd7-9609-acc0c0ff5b6a.jpg)
+
+![Pic1MMC](https://user-images.githubusercontent.com/85577140/126784241-29a018a4-49fd-4f7d-8241-f078eca4f41c.jpg)
+
+![Pic2MMC](https://user-images.githubusercontent.com/85577140/126784278-3886d3f9-6e01-41ea-ae10-5e3d5a2678d5.jpg)
+
+![Pic3MMC](https://user-images.githubusercontent.com/85577140/126784300-86ca3408-3132-46d8-815d-2c4e345f54a4.jpg)
+
+Nous a aidé à comprendre première technique de regression avec la méthode des moindres carrés, une méthode de régression parmi d'autres + mesurer de l'importance de la sensibilité du modèle etc
+SECTION A COMPLETER !! 
 
 # 5 Discussion
 ## 5.1 Advantages and disadvantages of the SIR model
@@ -136,8 +151,9 @@ Sentinelles, R. I. (2021). Données syndromes grippaux Réseau Sentinelles. Rés
 Modélisation d'une épidémie - Images des mathématiques. (2020, novembre). CNRS. https://images.math.cnrs.fr/Modelisation-d-une-epidemie-partie-2.html\
 
 
-*Supporting information* : this paper is also written in LaTeX and in French, to get it, please reach me out. In the rest of this repo you will find the raw dataset. An illustrated appendix concerning the data cleaning set has also been written in French (but a bit heavy to import on GitHub). If you wish to read it, please do not hesitate to reach me out again.
-I would like to thank Sophie, Oriane and Johann for their involvement in this paper as well as our teacher members of the jury, Mr Koelblen and Mr Rauzy.
+### Supporting information
+This paper is also written in LaTeX and in French, to get it, please reach me out. In the rest of this repo you will find the raw dataset. An illustrated appendix concerning the data cleaning set has also been written in French (but a bit heavy to import on GitHub). If you wish to read it, please do not hesitate to reach me out again.
+
 
 
 
