@@ -123,11 +123,14 @@ For the minimisation of the square of the deviations, we find the figure of abou
 
 This time, rather than the flatten shape of the curve representing the real data (see the very first graph) which would mean that the model does not fit reality very well, it is more the moment when the epidemic peak is reached that is problematic (reached at the 7th week with our model versus at the 9th in reality). The growth and decay times start earlier with our model which gives this "shifted" effect of the curve representing the real data. However, by applying again the least squares method, this "shifted" effect disappears.  Our model is similar to a bell curve whereas the curve representing the real data has a slightly more pronounced exponential growth and decay. The epidemic peak is reached at exactly the same time, in the 9th week.
 
+Finally, let us consider a last epidemiological peak.
+
 ![Pic3](https://user-images.githubusercontent.com/85577140/126783935-2ad71d0f-aaf2-4dd7-9609-acc0c0ff5b6a.jpg)
 ![Pic3MMC](https://user-images.githubusercontent.com/85577140/126784300-86ca3408-3132-46d8-815d-2c4e345f54a4.jpg)
 
-Nous a aidé à comprendre première technique de regression avec la méthode des moindres carrés, une méthode de régression parmi d'autres + mesurer de l'importance de la sensibilité du modèle etc
-SECTION A COMPLETER !! 
+This time the curve representing the real data had a rather peculiar shape differing from the usual bell shapes: exponential growth and then a rather smooth and flatter decay. Before applying the least squares method, it was clear that our model did not correspond well to reality. Indeed, although the growth of the two curves is similar at the beginning, the rate of infection reached at the peak of the epidemic for our model is almost double the rate from the real data.
+The least squares method allowed us to reduce such a difference, but as can be seen on the last graph, the epidemic peak is not reached at the same time and arrives faster (at the 7th versus the 9th week) when considering the real data, which can be fatal when relying on this model to predict the evolution of the epidemic.
+
 
 # 5 Discussion
 ## 5.1 Advantages and disadvantages of the SIR model
@@ -140,6 +143,9 @@ Another important point to note about the SIR model is that it does not take int
 The principle of the least squares method is to compare whether our modelling is close enough to reality. The value obtained with the Solver tool in Excel is however only indicative and specific to this study (depending very particularly on the scale used). The advantage of this method is that we can find the values of the parameters that we can vary (in this case β and γ) in order to get closer to the real values.
 
 SECTION A COMPLETER !! (voir résultats)
+Nous a aidé à comprendre première technique de regression avec la méthode des moindres carrés, une méthode de régression parmi d'autres + mesurer de l'importance de la sensibilité du modèle etc
+n'a pas vocation prédictive
+différence de valeur entre les beta et gamma s'expliquent parle caractère saisonnier du virus + fortes proba de muta donc caractéristiques différentes etc.
 
 # 6 Conclusion
 
