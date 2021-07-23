@@ -110,16 +110,20 @@ Let us now introduce the graphs found. For the first epidemiological peak studie
 ![Pic1](https://user-images.githubusercontent.com/85577140/126783914-9c4a4c18-5ffa-4424-aaa4-7c767ddb5546.jpg)
 ![Pic1MMC](https://user-images.githubusercontent.com/85577140/126794907-1f0dc9af-9dff-4df3-b809-e667cde0ee21.jpg)
 
-we can immediately notice the efficiency of the least squares method: our model is much more adjusted to reality when we apply this method. 
-The Solver tool in Excel was able to modify the value of the β and γ parameters by taking into account the different formulas entered in the cells. 
-For the minimisation of the square of the deviations, we find the figure of about 0.000001 (see Excel file in the rest of the repo).
+We can immediately notice the efficiency of the least squares method: our model is much more adjusted to reality when we apply this method. The Solver tool in Excel was able to modify the value of the β and γ parameters by taking into account the different formulas entered in the cells. For the minimisation of the square of the deviations, we find the figure of about 0.000001 (see Excel file in the rest of the repo).
+
+A first remark that we can make is that our model is very sensitive to the β and γ parameters and this to the nearest hundredth. Indeed, without applying the method of least squares and by choosing β = 0,8 and β = 0,7 , apart from the direction of variation, the curves do not look very similar. However, a small variation in the value of the parameters β and γ (of the order of a hundredth, as we end up with beta = 0.826 and gamma= 0,762), leads to a different result where the growth and decay of the two curves are similar and the epidemiological peak is almost reached at the same time (around the 6th week). The difference between the infection rate of the first and the second curve is almost zero for each week, which shows that the least squares method allowed us to fit our model to the real life data. 
+
+Now, let us consider a second epidemiological peak.
 
 ![Pic2](https://user-images.githubusercontent.com/85577140/126783927-06a7ecf6-649b-4aec-b00b-dd473fcf0985.jpg)
-
-![Pic3](https://user-images.githubusercontent.com/85577140/126783935-2ad71d0f-aaf2-4dd7-9609-acc0c0ff5b6a.jpg)
-
 ![Pic2MMC](https://user-images.githubusercontent.com/85577140/126784278-3886d3f9-6e01-41ea-ae10-5e3d5a2678d5.jpg)
 
+For the minimisation of the square of the deviations, we find the figure of about 0.00001 (see Excel file in the rest of the repo).
+
+This time, rather than the flatten shape of the curve representing the real data (see the very first graph) which would mean that the model does not fit reality very well, it is more the moment when the epidemic peak is reached that is problematic (reached at the 7th week with our model versus at the 9th in reality). The growth and decay times start earlier with our model which gives this "shifted" effect of the curve representing the real data. However, by applying again the least squares method, this "shifted" effect disappears.  Our model is similar to a bell curve whereas the curve representing the real data has a slightly more pronounced exponential growth and decay. The epidemic peak is reached at exactly the same time, in the 9th week.
+
+![Pic3](https://user-images.githubusercontent.com/85577140/126783935-2ad71d0f-aaf2-4dd7-9609-acc0c0ff5b6a.jpg)
 ![Pic3MMC](https://user-images.githubusercontent.com/85577140/126784300-86ca3408-3132-46d8-815d-2c4e345f54a4.jpg)
 
 Nous a aidé à comprendre première technique de regression avec la méthode des moindres carrés, une méthode de régression parmi d'autres + mesurer de l'importance de la sensibilité du modèle etc
