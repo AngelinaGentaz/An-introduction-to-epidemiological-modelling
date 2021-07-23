@@ -1,6 +1,6 @@
 # An introduction to epidemiological modelling
 
-> All models are wrong, but some are usefull
+> "All models are wrong, but some are usefull"
 Georges Box
 
 # 1 Introduction
