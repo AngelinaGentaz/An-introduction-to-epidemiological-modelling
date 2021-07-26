@@ -1,5 +1,4 @@
 # An-introduction-to-epidemiological-modelling
-Welcome to the repository for an epidemic modelling project !
 
 
 Bienvenue sur mon projet de d'étude par les moindres carrés d'une épidémie de grippe ! Vous trouverez dans ce repository plusieurs documents.
